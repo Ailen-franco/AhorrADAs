@@ -13,39 +13,85 @@
 <body class="bg-slate-100">
     <!-- header -->
     <header>
-        <nav class="flex justify-between items-center text-slate-50 bg-teal-400 w-screen h-24">
+        <nav class="w-screen sm:w-screen h-24 flex justify-between items-center text-slate-50 bg-teal-400">
             <div>
-                <button class="mx-10 text-4xl w-64 h-14 rounded font-semibold cursor-pointer hover:bg-teal-500"><i class="fa-solid fa-wallet">
-                </i> AhorrADAs</button>
+                <a href="#" class="mx-10 text-4xl w-64 h-14 rounded font-semibold cursor-pointer hover:bg-teal-500"><i class="fa-solid fa-wallet">
+                </i> AhorrADAs</a>
             </div>
-            <div>
-                <ul class="flex mx-10 text-base text-center">
-                    <li class="mx-2 w-24 h-8 cursor-pointer rounded hover:bg-teal-500"><a href="#"></a><i class="fa-solid fa-chart-line"></i> Balance</li>
-                    <li class="mx-2 w-28 h-8 cursor-pointer rounded hover:bg-teal-500"><a href="./index/category.html"></a><i class="fa-solid fa-tag"></i> Categorías</li>
-                    <li class="mx-2 w-24 h-8 cursor-pointer rounded hover:bg-teal-500"><a href=""></a><i class="fa-solid fa-chart-pie"></i> Reportes</li>
+            <div class="bg-teal-400 text-center">
+                <ul class="md:flex mx-10 hidden sm:block text-base text-center">
+                    <li class="mx-2 w-24 h-8 cursor-pointer rounded hover:bg-teal-500"><a href="#"><i class="fa-solid fa-chart-line"></i> Balance</a></li>
+                    <li class="mx-2 w-28 h-8 cursor-pointer rounded hover:bg-teal-500"><a href="" id="category-section"><i class="fa-solid fa-tag"></i> Categorías</a></li>
+                    <li class="mx-2 w-24 h-8 cursor-pointer rounded hover:bg-teal-500" id="reports-section"><a href=""><i class="fa-solid fa-chart-pie"></i> Reportes</a></li>
                 </ul>
+                <div class="flex justify-center items-center mx-2 w-[100px] h-24 hidden">
+                    <button class="w-12 h-12 items-center cursor-pointer rounded hover:bg-teal-500"><i class="text-2xl opacity-80 fa-solid fa-bars" style="color: #f8fafc;"></i></button>
+                    <button class="w-12 h-12 items-center cursor-pointer rounded hover:bg-teal-500"><i class="text-2xl opacity-80 fa-solid fa-xmark" style="color: #f8fafc;"></i></button>
+                </div>
             </div>
         </nav>
     </header>
     <!-- main -->
-    <main class="flex flex-row-reverse justify-center">
-        <section>
-            <!-- operations card -->
-            <section class="w-[750px] h-[775px] bg-white mt-16 ml-[30px] rounded shadow-md">
-                <div class="flex justify-between h-14">
-                    <h3 class="w-28 mt-4 ml-4 text-2xl text-zinc-600 font-bold text-center">Operaciones</h3>
-                    <button class="w-40 h-10 mt-4 mr-4 bg-teal-400 text-slate-50 rounded hover:bg-teal-500 active:bg-teal-600">+ Nueva operación</button>
-                </div>
-                <div class="flex flex-col items-center	">
-                    <img src="./img/wallet.svg" alt="wallet image" class="w-96 my-20 opacity-80">
-                    <span class="mb-8 text-2xl text-zinc-600 font-semibold">Sin resultados</span>
-                    <p class="mb-10 text-zinc-500">Cambia los filtros o agrega operaciones</p>
-                </div>
-            </section>
+    <main class="sm:flex flex-row-reverse justify-center">
+        <!-- operations card -->
+        <section class="w-[390px] sm:w-[750px] h-[775px] bg-white mt-16 ml-[30px] rounded shadow-md" id="operation-card">
+            <div class="flex justify-between h-14">
+                <h3 class="w-28 mt-4 ml-4 text-2xl text-zinc-600 font-bold text-center">Operaciones</h3>
+                <button class="w-40 h-10 mt-4 sm:ml-96 bg-teal-400 text-slate-50 rounded hover:bg-teal-500 active:bg-teal-600" id="add-operation-btn">+ Nueva operación<button>
+            </div>
+            <div class="img flex flex-col items-center">
+                <img src="./img/wallet.svg" alt="wallet image" class="w-96 my-20 opacity-80">
+                <span class="mb-8 text-2xl text-zinc-600 font-semibold">Sin resultados</span>
+                <p class="mb-10 text-zinc-500">Cambia los filtros o agrega operaciones</p>
+            </div>
+            <!-- operations table -->
+            <div>
+                <table class="table-fixed container mt-8 hidden" id="tablita">
+                    <thead>
+                        <th>Descripción</th>
+                        <th>Categoría</th>
+                        <th>Fecha</th>
+                        <th>Monto</th>
+                        <th>Acciones</th>
+                    </thead>
+                    <tbody id="table">
+                        <!-- Here we will render the operations from localstorage -->
+                    </tbody>
+                </table>
+            </div>
         </section>
-        <section>
+        <!-- new operation form -->
+        <form class="form w-[320px] sm:w-[900px] h-[650px] bg-white mt-16 rounded shadow-md hidden">
+            <h2 class="mx-4 pt-4 text-3xl text-zinc-600 font-bold">Nueva Operación</h2>
+            <div>
+                <p class="mt-14 ml-4 text-base font-bold">Descripción</p>
+                <input type="text" id="description" class="mt-2 mx-4 p-2 w-40 sm:w-[860px] border-solid border-[1px] border-teal-400 rounded shadow-sm">
+            </div>
+            <div>
+                <p class="mt-4 ml-4 text-base font-bold">Monto</p>
+                <input type="number" class="mt-2 mx-4 p-2 w-40 sm:w-[860px] border-solid border-[1px] border-teal-400 rounded shadow-sm">
+            </div>
+            <div>
+                <p class="mt-4 ml-4 text-base font-bold">Tipo</p>
+                <select name="select" id="benefit" class="mt-2 mx-4 p-2 w-40 sm:w-[860px] border-solid border-[1px] border-teal-400 rounded shadow-sm"></select>
+            </div>
+            <div>
+                <p class="mt-4 ml-4 text-base font-bold">Categoría</p>
+                <select name="categorie" id="categories" class="mt-2 mx-4 p-2 w-40 sm:w-[860px] border-solid border-[1px] border-teal-400 rounded shadow-sm"></select>
+            </div>
+            <div>
+                <p class="mt-4 ml-4 text-base font-bold">Fecha</p>
+                <input type="date" class="mt-2 mx-4 p-2 w-40 sm:w-[860px] border-solid border-[1px] border-teal-400 rounded shadow-sm">
+            </div>
+            <div class="flex justify-end mr-4">
+                <button class="mt-10 mx-1 w-24 h-10 cursor-pointer bg-zinc-200 text-base rounded hover:bg-zinc-300" id="delete-btn">Cancelar</button>
+                <button class="mt-10 mx-1 w-24 h-10 cursor-pointer bg-teal-400 text-slate-50 rounded hover:bg-teal-500" id="add-btn">Agregar</button>
+            </div>
+        </form>
+        <!-- Side cards -->
+        <section class="side-cards w-[420px] sm:w-[350px] mr-2">
             <!-- balance card -->
-            <section class="w-80 bg-white mt-16 rounded shadow-md">
+            <section class="ml-8 sm:w-80 bg-white mt-16 rounded shadow-md">
                 <h2 class="mx-4 pt-4 text-3xl text-zinc-600 font-bold">Balance</h2>
                 <div class="flex justify-between mx-4 my-8">
                     <div>
@@ -61,30 +107,18 @@
                 </div>
             </section>
             <!-- filter card -->
-            <section class="w-80 bg-white rounded shadow-md">
+            <section class="ml-8 mb-8 sm:w-80 bg-white rounded shadow-md">
                 <div class="flex justify-between mx-4">
                     <h2 class="mt-4 text-3xl text-zinc-600 font-bold">Filtros</h2>
                     <button class="mt-4 ml-4 text-teal-500 hover:text-zinc-600">Ocultar filtros</button>
                 </div>
                 <div>
                     <p class="mt-4 ml-4 text-lg font-bold">Tipo</p>
-                    <select name="type" id="" class="mt-4 ml-4 p-2 w-72 border-solid border-[1px] border-teal-400 rounded">
-                        <option value="">Todos</option>
-                        <option value="">Gastos</option>
-                        <option value="">Ganancias</option>
-                    </select>
+                    <select name="type" id="type" class="mt-4 ml-4 p-2 w-72 border-solid border-[1px] border-teal-400 rounded"></select>
                 </div>
                 <div>
                     <p class="mt-4 ml-4 text-lg font-bold">Categoría</p>
-                    <select name="category" id="" class="mt-4 ml-4 p-2 w-72 border-solid border-[1px] border-teal-400 rounded">
-                        <option value="">Todas</option>
-                        <option value="">Comida</option>
-                        <option value="">Servicios</option>
-                        <option value="">Salidas</option>
-                        <option value="">Educación</option>
-                        <option value="">Transporte</option>
-                        <option value="">Trabajo</option>
-                    </select>
+                    <select name="category" id="category" class="mt-4 ml-4 p-2 w-72 border-solid border-[1px] border-teal-400 rounded"></select>
                 </div>
                 <div>
                     <p class="mt-4 ml-4 text-lg font-bold">Desde</p>
@@ -92,21 +126,79 @@
                 </div>
                 <div>
                     <p class="mt-4 ml-4 text-lg font-bold">Ordenar por</p>
-                    <select name="order" id="" class="my-4 ml-4 p-2 w-72 border-solid border-[1px] border-teal-400 rounded">
-                        <option value="">Más reciente</option>
-                        <option value="">Menos reciente</option>
-                        <option value="">Mayor monto</option>
-                        <option value="">Menor monto</option>
-                        <option value="">A/Z</option>
-                        <option value="">Z/A</option>
-                    </select>
+                    <select name="order" id="order" class="my-4 ml-4 p-2 w-72 border-solid border-[1px] border-teal-400 rounded"></select>
                 </div>
             </section>
         </section>
+        <!-- category section -->
+        <section class="category hidden">
+            <section class="w-[320px] sm:w-[900px] h-[600px] bg-white my-16 rounded shadow-md">
+                <h2 class="mx-4 pt-4 text-3xl text-zinc-600 font-bold">Categorías</h2>
+                <p class="mt-14 ml-4 text-lg font-bold">Nombre</p>
+                <div>
+                    <input type="text" class="mt-4 ml-4 p-2 w-40 sm:w-[750px] border-solid border-[1px] border-teal-400 rounded shadow-sm">
+                    <button class="mx-2 w-24 h-10 cursor-pointer bg-teal-400 text-slate-50 rounded hover:bg-teal-500">Agregar</button>
+                </div>
+                <section class="flex justify-between">
+                    <div class="mt-8 ml-4">
+                        <p class="w-20 h-6 my-4 text-center text-teal-800 bg-teal-100 rounded">Comida</p>
+                        <p class="w-20 h-6 my-4 text-center text-teal-800 bg-teal-100 rounded">Servicios</p>
+                        <p class="w-20 h-6 my-4 text-center text-teal-800 bg-teal-100 rounded">Salidas</p>
+                        <p class="w-20 h-6 my-4 text-center text-teal-800 bg-teal-100 rounded">Educación</p>
+                        <p class="w-20 h-6 my-4 text-center text-teal-800 bg-teal-100 rounded">Transporte</p>
+                        <p class="w-20 h-6 my-4 text-center text-teal-800 bg-teal-100 rounded">Trabajo</p>
+                    </div>
+                    <div class="mt-8 mr-8">
+                        <div class="my-4">
+                            <button class="mr-2 text-xs text-teal-500 hover:text-zinc-600">Editar</button>
+                            <button class="text-xs text-teal-500 hover:text-zinc-600">Eliminar</button>
+                        </div>
+                        <div class="my-4">
+                            <button class="mr-2 text-xs text-teal-500 hover:text-zinc-600">Editar</button>
+                            <button class="text-xs text-teal-500 hover:text-zinc-600">Eliminar</button>
+                        </div>
+                        <div class="my-4">
+                            <button class="mr-2 text-xs text-teal-500 hover:text-zinc-600">Editar</button>
+                            <button class="text-xs text-teal-500 hover:text-zinc-600">Eliminar</button>
+                        </div>
+                        <div class="my-4">
+                            <button class="mr-2 text-xs text-teal-500 hover:text-zinc-600">Editar</button>
+                            <button class="text-xs text-teal-500 hover:text-zinc-600">Eliminar</button>
+                        </div>
+                        <div class="my-4">
+                            <button class="mr-2 text-xs text-teal-500 hover:text-zinc-600">Editar</button>
+                            <button class="text-xs text-teal-500 hover:text-zinc-600">Eliminar</button>
+                        </div>
+                        <div class="my-4">
+                            <button class="mr-2 text-xs text-teal-500 hover:text-zinc-600">Editar</button>
+                            <button class="text-xs text-teal-500 hover:text-zinc-600">Eliminar</button>
+                        </div>
+                    </div>
+                </section>
+            </section>
+        </section>
+        <!-- reports section -->
+        <section class="reports w-[320px] sm:w-[900px] h-[600px] bg-white my-16 rounded shadow-md hidden">
+            <h2 class="mx-4 pt-4 text-3xl text-zinc-600 font-bold">Reportes</h2>
+            <div class="flex flex-col items-center">
+                <img src="../img/chart.svg" alt="chart image" class="w-72 sm:w-96 my-20 opacity-80">
+                <span class="mb-8 text-2xl text-zinc-600 font-semibold">Operaciones insuficientes</span>
+                <p class="mb-10 text-zinc-500">Prueba agregando más operaciones</p>
+            </div>
+        </section>
+        <section class="w-[320px] sm:w-[900px] h-[600px] bg-white my-16 rounded shadow-md hidden">
+            <h2 class="mx-4 pt-4 text-3xl text-zinc-600 font-bold">Reportes</h2>
+            <div>
+                <h3>Resumen</h3>
+            </div>
+            <div>
+                <h3>Totales por categoría</h3>
+            </div>
+            <div>
+                <h3>Totales por mes</h3>
+            </div>
+        </section>
     </main>
-   
-
-
 
     <script src="js/main.js"></script>
 </body>
