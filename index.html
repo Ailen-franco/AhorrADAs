@@ -38,7 +38,7 @@
                 <h3 class="w-28 mt-4 ml-4 text-2xl text-zinc-600 font-bold text-center">Operaciones</h3>
                 <button class="w-40 h-10 mt-4 mr-4 sm:ml-96 bg-teal-400 text-slate-50 rounded hover:bg-teal-500 active:bg-teal-600" id="add-operation-btn">+ Nueva operación</button>
             </div>
-            <div class="img flex flex-col items-center">
+            <div class="flex flex-col items-center" id="img">
                 <figure class="w-96 my-20 opacity-80">
                     <img src="./img/wallet.svg" alt="wallet image">
                 </figure>
@@ -46,7 +46,7 @@
                 <p class="mb-10 text-zinc-500">Cambia los filtros o agrega operaciones</p>
             </div>
             <!-- operations table card -->
-            <div class="table hidden">
+            <div class="hidden" id="table">
                 <table class="table-fixed container mt-8">
                     <thead>
                         <th>Descripción</th>
@@ -90,7 +90,7 @@
             </div>
         </form>
         <!-- Aside cards -->
-        <aside class="side-cards w-[420px] sm:w-[350px] mr-2">
+        <aside class="aside-cards w-[420px] sm:w-[350px] mr-2">
             <!-- balance card -->
             <section class="ml-8 sm:w-80 bg-white mt-16 rounded shadow-md">
                 <h2 class="mx-4 pt-4 text-3xl text-zinc-600 font-bold">Balance</h2>

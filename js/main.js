@@ -94,26 +94,26 @@ const renderOperations = (operations) => {
 $("#add-operation-btn").addEventListener("click", () => {
     showElement(".form")
     hideElement("#operation-card")
-    hideElement(".side-cards")
+    hideElement(".aside-cards")
 })
 //Show operations table card
 $("#add-btn").addEventListener("click", () => {
-    showElement(".table")
+    showElement("#table")
     showElement("#operation-card")
-    hideElement(".img")
+    hideElement("#img")
     hideElement(".form")
-    hideElement(".side-cards")
+    // hideElement(".aside-cards")
 })
 //Cancel New Operation
 $("#cancel-btn").addEventListener("click", () => {
     showElement("#operation-card")
-    showElement(".side-cards")
+    showElement(".aside-cards")
     hideElement(".form")
 })
 //Show Category Section
 $("#category-section").addEventListener("click", () => {
     showElement(".category")
-    hideElement(".side-cards")
+    hideElement(".aside-cards")
     hideElement("#operation-card")
     hideElement(".form")
     hideElement(".reports")
@@ -122,13 +122,13 @@ $("#category-section").addEventListener("click", () => {
 $("#reports-section").addEventListener("click", () => {
     showElement(".reports")
     hideElement("#operation-card")
-    hideElement(".side-cards")
+    hideElement(".aside-cards")
     hideElement(".category")
 })
 //Show Balance Section
 $("#balance-section").addEventListener("click", () => {
     showElement("#operation-card")
-    showElement(".side-cards")
+    showElement(".aside-cards")
     hideElement(".reports")
     hideElement(".category")
     hideElement(".form")
