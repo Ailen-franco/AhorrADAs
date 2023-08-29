@@ -1,13 +1,15 @@
 const $ = (selector) => document.querySelector(selector);
 const $$ = (selector) => document.querySelectorAll(selector);
 
-// Helper functions
-
+// HELPER FUNCTIONS
+//Show or Hide Elements
 const showElement = (selector) => $(selector).classList.remove("hidden")
 const hideElement = (selector) => $(selector).classList.add("hidden")
 
-// SELECTORS
+//Random ID generator
+const randomId = () => self.crypto.randomUUID()
 
+// SELECTORS
 // filter card section
 // type
 const types = ["Todos", "Gastos", "Ganancias"]
@@ -17,7 +19,6 @@ for (let type of types) {
     option.innerHTML = `${type}`;
     $("#type").appendChild(option)
 }
-
 // category
 const categories = ["Todas", "Comidas", "Servicios", "Salidas", "Educación", "Transporte", "Trabajo"]
 
@@ -26,7 +27,6 @@ for (let category of categories) {
     option.innerHTML = `${category}`;
     $("#category").appendChild(option)
 }
-
 // order
 const order = ["Más reciente", "Menos reciente", "Mayor monto", "Menor monto", "A/Z", "Z/A"]
 
@@ -35,7 +35,6 @@ for (let range of order) {
     option.innerHTML = `${range}`;
     $("#order").appendChild(option)
 }
-
 // new operation section
 // type
 const type = ["Gastos", "Ganancias"]
@@ -45,7 +44,6 @@ for (let type of types) {
     option.innerHTML = `${type}`;
     $("#benefit").appendChild(option)
 }
-
 // category
 const category = ["Todas", "Comidas", "Servicios", "Salidas", "Educación", "Transporte", "Trabajo"]
 
@@ -55,9 +53,7 @@ for (let category of categories) {
     option.innerHTML = `${category}`;
     $("#categories").appendChild(option)
 }
-
 // INPUTS DATE
-
 const date = () => {
     const inputDate = $$('input[type="date"]');
     inputDate.forEach((input) => {
@@ -68,7 +64,6 @@ const date = () => {
 date()
 
 // FUNCTIONALITIES
-
 // new operation section
 // add btn
 
@@ -79,7 +74,6 @@ date()
 
 
 // Operations table
-
 const renderOperations = (operations) => {
     for (const operation of operations) {
         const { Descripción, Categoría, Fecha, Monto, Acciones } = operation 
@@ -95,39 +89,47 @@ const renderOperations = (operations) => {
         `
     }
 }
-
-
-// SECTIONS BTN
-// add New operation btn
-
+// SHOW/HIDE SECTION
+//Show New Operation Form
 $("#add-operation-btn").addEventListener("click", () => {
     showElement(".form")
     hideElement("#operation-card")
     hideElement(".side-cards")
 })
-
+//Show operations table card
 $("#add-btn").addEventListener("click", () => {
-    showElement("#tablita")
+    showElement(".table")
+    showElement("#operation-card")
     hideElement(".img")
-    
+    hideElement(".form")
+    hideElement(".side-cards")
 })
-
-// Category btn
-
+//Cancel New Operation
+$("#cancel-btn").addEventListener("click", () => {
+    showElement("#operation-card")
+    showElement(".side-cards")
+    hideElement(".form")
+})
+//Show Category Section
 $("#category-section").addEventListener("click", () => {
     showElement(".category")
     hideElement(".side-cards")
     hideElement("#operation-card")
+    hideElement(".form")
+    hideElement(".reports")
 })
-
-// Reports btn
-
+//Show Reports Section
 $("#reports-section").addEventListener("click", () => {
     showElement(".reports")
+    hideElement("#operation-card")
     hideElement(".side-cards")
-    hideElement(".operation-card")
+    hideElement(".category")
 })
-
-
-
-
+//Show Balance Section
+$("#balance-section").addEventListener("click", () => {
+    showElement("#operation-card")
+    showElement(".side-cards")
+    hideElement(".reports")
+    hideElement(".category")
+    hideElement(".form")
+})
