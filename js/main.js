@@ -132,3 +132,4 @@ $("#balance-section").addEventListener("click", () => {
     hideElement(".category")
     hideElement(".form")
 })
+

@@ -33,7 +33,7 @@
     <!-- main -->
     <main class="sm:flex flex-row-reverse justify-center">
         <!-- operations card -->
-        <section class="w-[390px] sm:w-[750px] h-[775px] bg-white mt-16 ml-[30px] rounded shadow-md" id="operation-card">
+        <section class="w-[390px] sm:w-[750px] h-[775px] bg-white mt-16 ml-[30px] rounded shadow-md hidden" id="operation-card">
             <div class="flex justify-between h-14">
                 <h3 class="w-28 mt-4 ml-4 text-2xl text-zinc-600 font-bold text-center">Operaciones</h3>
                 <button class="w-40 h-10 mt-4 mr-4 sm:ml-96 bg-teal-400 text-slate-50 rounded hover:bg-teal-500 active:bg-teal-600" id="add-operation-btn">+ Nueva operación</button>
@@ -89,7 +89,7 @@
                 <button class="mt-10 mx-1 w-24 h-10 cursor-pointer bg-teal-400 text-slate-50 rounded hover:bg-teal-500" id="add-btn">Agregar</button>
             </div>
         </form>
-        <!-- card edit operation -->
+        <!-- edit operation card -->
         <form class="form w-[320px] sm:w-[900px] h-[650px] bg-white mt-16 rounded shadow-md hidden">
             <h2 class="mx-4 pt-4 text-3xl text-zinc-600 font-bold">Editar Operación</h2>
             <div>
@@ -203,6 +203,18 @@
                     </div>
                 </div>
             </section>
+        </section>
+        <!-- edit category card -->
+        <section class="category w-[320px] sm:w-[900px] h-[600px] bg-white my-16 rounded shadow-md ">
+            <h2 class="mx-4 pt-4 text-3xl text-zinc-600 font-bold">Editar categorías</h2>
+            <p class="mt-14 ml-4 text-lg font-bold">Nombre</p>
+            <div>
+                <input type="text" class="mt-2 mx-4 p-2 w-40 sm:w-[860px] border-solid border-[1px] border-teal-400 rounded shadow-sm">
+                <div class="flex justify-end mr-4">
+                    <button class="mt-10 mx-1 w-24 h-10 cursor-pointer bg-zinc-200 text-base rounded hover:bg-zinc-300" id="cancel-btn-category">Cancelar</button>
+                    <button class="mt-10 mx-1 w-24 h-10 cursor-pointer bg-teal-400 text-slate-50 rounded hover:bg-teal-500" id="edit-btn-category">Editar</button>
+                </div>
+            </div>
         </section>
         <!-- reports section -->
         <section class="reports w-[320px] sm:w-[900px] h-[600px] bg-white my-16 rounded shadow-md hidden">
