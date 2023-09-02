@@ -89,6 +89,34 @@
                 <button class="mt-10 mx-1 w-24 h-10 cursor-pointer bg-teal-400 text-slate-50 rounded hover:bg-teal-500" id="add-btn">Agregar</button>
             </div>
         </form>
+        <!-- card edit operation -->
+        <form class="form w-[320px] sm:w-[900px] h-[650px] bg-white mt-16 rounded shadow-md hidden">
+            <h2 class="mx-4 pt-4 text-3xl text-zinc-600 font-bold">Editar Operación</h2>
+            <div>
+                <p class="mt-14 ml-4 text-base font-bold">Descripción</p>
+                <input type="text" id="description" class="mt-2 mx-4 p-2 w-40 sm:w-[860px] border-solid border-[1px] border-teal-400 rounded shadow-sm">
+            </div>
+            <div>
+                <p class="mt-4 ml-4 text-base font-bold">Monto</p>
+                <input type="number" class="mt-2 mx-4 p-2 w-40 sm:w-[860px] border-solid border-[1px] border-teal-400 rounded shadow-sm">
+            </div>
+            <div>
+                <p class="mt-4 ml-4 text-base font-bold">Tipo</p>
+                <select name="select" id="benefit" class="mt-2 mx-4 p-2 w-40 sm:w-[860px] border-solid border-[1px] border-teal-400 rounded shadow-sm"></select>
+            </div>
+            <div>
+                <p class="mt-4 ml-4 text-base font-bold">Categoría</p>
+                <select name="categorie" id="categories" class="mt-2 mx-4 p-2 w-40 sm:w-[860px] border-solid border-[1px] border-teal-400 rounded shadow-sm"></select>
+            </div>
+            <div>
+                <p class="mt-4 ml-4 text-base font-bold">Fecha</p>
+                <input type="date" class="mt-2 mx-4 p-2 w-40 sm:w-[860px] border-solid border-[1px] border-teal-400 rounded shadow-sm">
+            </div>
+            <div class="flex justify-end mr-4">
+                <button class="mt-10 mx-1 w-24 h-10 cursor-pointer bg-zinc-200 text-base rounded hover:bg-zinc-300" id="cancel-btn">Cancelar</button>
+                <button class="mt-10 mx-1 w-24 h-10 cursor-pointer bg-teal-400 text-slate-50 rounded hover:bg-teal-500" id="edit-btn">Editar</button>
+            </div>
+        </form>
         <!-- Aside cards -->
         <aside class="aside-cards w-[420px] sm:w-[350px] mr-2">
             <!-- balance card -->

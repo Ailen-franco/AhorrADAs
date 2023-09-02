@@ -102,7 +102,6 @@ $("#add-btn").addEventListener("click", () => {
     showElement("#operation-card")
     hideElement("#img")
     hideElement(".form")
-    // hideElement(".aside-cards")
 })
 //Cancel New Operation
 $("#cancel-btn").addEventListener("click", () => {
