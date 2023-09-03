@@ -98,10 +98,10 @@ $("#add-operation-btn").addEventListener("click", () => {
 })
 //Show operations table card
 $("#add-btn").addEventListener("click", () => {
-    showElement("#table")
+    hideElement(".form")
     showElement("#operation-card")
     hideElement("#img")
-    hideElement(".form")
+    showElement("#table")   
 })
 //Cancel New Operation
 $("#cancel-btn").addEventListener("click", () => {
@@ -123,6 +123,8 @@ $("#reports-section").addEventListener("click", () => {
     hideElement("#operation-card")
     hideElement(".aside-cards")
     hideElement(".category")
+    hideElement(".form")
+    hideElement(".edit-form")
 })
 //Show Balance Section
 $("#balance-section").addEventListener("click", () => {
@@ -131,5 +133,5 @@ $("#balance-section").addEventListener("click", () => {
     hideElement(".reports")
     hideElement(".category")
     hideElement(".form")
+    
 })
-
