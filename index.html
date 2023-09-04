@@ -35,7 +35,7 @@
     <!-- main -->
     <main class="flex flex-col items-center md:flex md:flex-row-reverse md:justify-center">
         <!-- operations card -->
-        <section class="w-[310px] sm:w-[600px] md:w-[750px] sm:h-[775px] bg-white mt-16 sm:ml-0 rounded shadow-md" id="operation-card">
+        <section class="w-[320px] sm:w-[600px] md:w-[750px] sm:h-[775px] bg-white mt-16 sm:ml-0 rounded shadow-md" id="operation-card">
             <div class="w-38 flex justify-between h-14">
                 <h3 class="w-28 mt-10 sm:mt-4 ml-4 text-2xl sm:text-xl md:text-2xl text-zinc-600 font-bold text-center">Operaciones</h3>
                 <button class="w-22 text-sm sm:text-base p-1 md:w-40 h-8 sm:h-10 mt-10 sm:mt-4 mr-4 bg-teal-400 text-slate-50 rounded hover:bg-teal-500 active:bg-teal-600" id="add-operation-btn">+ Nueva operación</button>
@@ -48,13 +48,13 @@
                 <p class="mb-10 text-zinc-500">Cambia los filtros o agrega operaciones</p>
             </div>
             <!-- operations table -->
-            <div class="hidden" id="table">
-                <table class="table-fixed container mt-8">
-                    <thead class="text-xs sm:text-base">
-                        <th class="w-20 sm:w-40 md:w-40">Descripción</th>
-                        <th class="w-18 sm:w-28 md:w-40">Categoría</th>
-                        <th class="w-12 sm:w-32 md:w-40">Fecha</th>
-                        <th class="w-12 sm:w-30 md:w-40">Monto</th>
+            <div class="" id="table">
+                <table class="table-fixed container w-[320px] sm:w-[600px] md:w-[750px] mt-8">
+                    <thead class="text-[0.65rem] sm:text-base">
+                        <th>Descripción</th>
+                        <th>Categoría</th>
+                        <th>Fecha</th>
+                        <th>Monto</th>
                         <th>Acciones</th>
                     </thead>
                     <tbody id="tBody">
@@ -64,7 +64,7 @@
             </div>
         </section>
         <!-- new operation form -->
-        <form class="form w-[310px] sm:w-[600px] md:w-[900px] h-[650px] bg-white md:ml-[30px] mt-16 rounded shadow-md hidden">
+        <form class="form w-[320px] sm:w-[600px] md:w-[900px] h-[650px] bg-white md:ml-[30px] mt-16 rounded shadow-md hidden">
             <h2 class="mx-4 pt-4 text-3xl text-zinc-600 font-bold">Nueva Operación</h2>
             <div>
                 <p class="mt-14 ml-4 text-base font-bold">Descripción</p>
@@ -92,7 +92,7 @@
             </div>
         </form>
         <!-- edit operation form -->
-        <form class="edit-form w-[310px] sm:w-[600px] md:w-[900px] h-[650px] bg-white md:ml-[30px] mt-16 rounded shadow-md hidden">
+        <form class="edit-form w-[320px] sm:w-[600px] md:w-[900px] h-[650px] bg-white md:ml-[30px] mt-16 rounded shadow-md hidden">
             <h2 class="mx-4 pt-4 text-3xl text-zinc-600 font-bold">Editar Operación</h2>
             <div>
                 <p class="mt-14 ml-4 text-base font-bold">Descripción</p>
@@ -122,7 +122,7 @@
         <!-- Aside cards -->
         <aside class="aside-cards flex flex-col items-center w-screen md:w-[350px] mt-8 md:mt-16 md:mr-8">
             <!-- balance card -->
-            <section class="w-[310px] sm:w-[600px] md:w-[310px] md:h-[270px] sm:ml-0 md:ml-8 bg-white rounded shadow-md">
+            <section class="w-[320px] sm:w-[600px] md:w-[320px] md:h-[270px] sm:ml-0 md:ml-8 bg-white rounded shadow-md">
                 <h2 class="mx-4 pt-4 text-2xl sm:text-3xl text-zinc-600 font-bold">Balance</h2>
                 <div class="flex justify-between mx-4 my-8">
                     <div>
@@ -138,7 +138,7 @@
                 </div>
             </section>
             <!-- filter card -->
-            <section class="w-[310px] sm:w-[600px] md:w-[310px] sm:ml-0 md:ml-8 mt-8 bg-white rounded shadow-md">
+            <section class="w-[320px] sm:w-[600px] md:w-[320px] sm:ml-0 md:ml-8 mt-8 bg-white rounded shadow-md">
                 <div class="flex justify-between mx-4">
                     <h2 class="mt-4 text-2xl sm:text-3xl text-zinc-600 font-bold">Filtros</h2>
                     <button class="mt-4 ml-4 text-teal-500 hover:text-zinc-600">Ocultar filtros</button>
@@ -162,7 +162,7 @@
             </section>
         </aside>
         <!-- category section -->
-        <section class="category w-[310px] sm:w-[600px] md:w-[900px] h-[600px] bg-white md:ml-[30px] my-16 rounded shadow-md hidden">
+        <section class="category w-[320px] sm:w-[600px] md:w-[900px] h-[600px] bg-white md:ml-[30px] my-16 rounded shadow-md hidden">
             <h2 class="mx-4 pt-4 text-2xl sm:text-3xl text-zinc-600 font-bold">Categorías</h2>
             <p class="mt-14 ml-4 text-lg font-bold">Nombre</p>
             <div>
@@ -207,7 +207,7 @@
             </section>
         </section>
         <!-- edit category card -->
-        <section class="edit-category w-[310px] sm:w-[600px] md:w-[900px] h-[300px] bg-white md:ml-[30px] my-16 rounded shadow-md hidden">
+        <section class="edit-category w-[320px] sm:w-[600px] md:w-[900px] h-[300px] bg-white md:ml-[30px] my-16 rounded shadow-md hidden">
             <h2 class="mx-4 pt-4 text-2xl sm:text-3xl text-zinc-600 font-bold">Editar categorías</h2>
             <p class="mt-14 ml-4 text-lg font-bold">Nombre</p>
             <div>
@@ -219,7 +219,7 @@
             </div>
         </section>
         <!-- reports section -->
-        <section class="reports w-[310px] sm:w-[600px] md:w-[900px] h-[600px] bg-white md:ml-[30px] my-16 rounded shadow-md hidden">
+        <section class="reports w-[320px] sm:w-[600px] md:w-[900px] h-[600px] bg-white md:ml-[30px] my-16 rounded shadow-md hidden">
             <h2 class="mx-4 pt-4 text-2xl sm:text-3xl text-zinc-600 font-bold">Reportes</h2>
             <div class="flex flex-col items-center">
                 <figure class="w-72 sm:w-96 my-20 opacity-80">
@@ -229,7 +229,7 @@
                 <p class="mb-10 text-zinc-500">Prueba agregando más operaciones</p>
             </div>
         </section>
-        <section class="w-[310px] sm:w-[600px] md:w-[900px] h-[600px] bg-white md:ml-[30px] my-16 rounded shadow-md hidden">
+        <section class="w-[320px] sm:w-[600px] md:w-[900px] h-[600px] bg-white md:ml-[30px] my-16 rounded shadow-md hidden">
             <h2 class="mx-4 pt-4 text-2xl sm:text-3xl text-zinc-600 font-bold">Reportes</h2>
             <div class="mx-4 pt-4">
                 <h3>Resumen</h3>
