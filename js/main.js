@@ -135,3 +135,64 @@ $("#balance-section").addEventListener("click", () => {
     hideElement(".form")
     
 })
+//Show Dropdown Menu
+$(".bars").addEventListener("click", () => {
+    showElement("#dropdown")
+    showElement(".x-mark")
+    hideElement(".bars")
+})
+//Hide Dropdown Menu
+$(".x-mark").addEventListener("click", () => {
+    hideElement("#dropdown")
+    hideElement(".x-mark")
+    showElement(".bars")
+})
+//Show Balance Section with Dropdown Menu
+$("#balance-dropdown").addEventListener("click", () => {
+    showElement("#operation-card")
+    showElement(".aside-cards")
+    hideElement(".reports")
+    hideElement(".category")
+    hideElement(".form")  
+})
+//Show Category Section with Dropdown Menu
+$("#category-dropdown").addEventListener("click", () => {
+    showElement(".category")
+    hideElement(".aside-cards")
+    hideElement("#operation-card")
+    hideElement(".form")
+    hideElement(".reports")
+})
+//Show Reports Section with Dropdown Menu
+$("#reports-dropdown").addEventListener("click", () => {
+    showElement(".reports")
+    hideElement("#operation-card")
+    hideElement(".aside-cards")
+    hideElement(".category")
+    hideElement(".form")
+    hideElement(".edit-form")
+})
+let isMenuOpen = false;
+
+// Add an event handler to the menu button
+$(".bars").addEventListener('click', () => {
+    isMenuOpen = !isMenuOpen;
+
+// Sets the top margin of the main content
+if (isMenuOpen) {
+    $(".main-content").style.marginTop = '64px';
+} else {
+    $(".main-content").style.marginTop = '0';
+}
+});
+$(".x-mark").addEventListener('click', () => {
+    // Close menu
+    isMenuOpen = false;
+  
+// Restores the top margin of the main content
+$(".main-content").style.marginTop = '0';
+});
+
+
+
+
