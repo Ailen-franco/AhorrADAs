@@ -180,7 +180,7 @@ $(".bars").addEventListener('click', () => {
 
 // Sets the top margin of the main content
 if (isMenuOpen) {
-    $(".main-content").style.marginTop = '70px';
+    $(".main-content").style.marginTop = '75px';
 } else {
     $(".main-content").style.marginTop = '0';
 }
@@ -192,7 +192,3 @@ $(".x-mark").addEventListener('click', () => {
 // Restores the top margin of the main content
 $(".main-content").style.marginTop = '0';
 });
-
-
-
-
