@@ -180,7 +180,7 @@ $(".bars").addEventListener('click', () => {
 
 // Sets the top margin of the main content
 if (isMenuOpen) {
-    $(".main-content").style.marginTop = '75px';
+    $(".main-content").style.marginTop = '85px';
 } else {
     $(".main-content").style.marginTop = '0';
 }
