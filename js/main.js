@@ -239,4 +239,32 @@ const completeSelector = (categories) => {
 };
 completeSelector(categories);
 
+//capture the value of the filters section option 
+$(".category-filter").addEventListener("change", () => {
+    console.log($(".category-filter").value);
+});
+//capture value of category section in form
+$(".category-form").addEventListener("change", () => {
+    console.log($(".category-form").value);
+});
+//capture the value of the edit category section
+$(".category-edit").addEventListener("change", () => {
+    console.log($(".category-edit").value);
+});
+
+// Generate the list of categories from javascript
+const categoryList = (categories) => {
+    $("#category-list").innerHTML = "";
+     for (const { name, id } of categories) {
+         $("#category-list").innerHTML += `
+         <li class="flex justify-between h-6 my-4 text-center">
+             <p class="w-20 text-teal-800 bg-teal-100 rounded">${name}</p>
+             <div class="mr-8">
+                 <button onclick="showEditCategoryBtn('${id}')" id="${id}" class="mr-2 text-xs text-teal-500 hover:text-zinc-600 edit-category-btn">Editar</button>
+                 <button onclick="deleteCategoryBtn('${id}')" id="${id}" class="text-xs text-teal-500 hover:text-zinc-600 delete-category-btn">Eliminar</button>
+             </div>
+         </li>`
+     };
+ };
+ categoryList(categories)
     
