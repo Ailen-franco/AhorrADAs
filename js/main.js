@@ -306,3 +306,24 @@ const showEditCategoryBtn = (id) => {
     $("#edit-btn-category").addEventListener("click", () => 
     editCategory(editDenomination.id));
 };
+
+//Functionality for the input to take the new value of said input
+const editCategory = (id) => {
+    //Create a new category
+    let newCategory = {
+        id: id,
+        name: $("#edit-category-input").value
+    };
+    // Variable que guarda los últimos datos actualizados, y con el metodo map, recorre cada categoría del array
+    let updatedCategories = getCategories().map((category) => 
+    //Utilizo el operador ternario para buscar el mismo id que entra por parámetro, y guardarla en la nueva categoria 
+    category.id === id ? { ...newCategory } : category
+    );
+    categoryList(updatedCategories);
+    completeSelector(updatedCategories);
+    setItem({ categories: updatedCategories });
+    $("#edit-btn-category").addEventListener("click", () => {
+        hideElement(".edit-category")
+        showElement(".category")
+    });
+};
