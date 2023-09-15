@@ -228,7 +228,7 @@ let categories = getCategories() || [
 ]
 console.log(categories)
 
-//Función para completar el selector con las categorías 
+//Function to complete the selector with categories 
 const completeSelector = (categories) => {
     $$("#category").forEach((select) => {
         select.innerHTML = "";
