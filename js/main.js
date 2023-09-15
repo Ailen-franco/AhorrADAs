@@ -156,6 +156,87 @@ $(".x-mark").addEventListener('click', () => {
 $(".main-content").style.marginTop = '0';
 });
 
+//----------------------------------------------------------
+//                       CATEGORIES
+//----------------------------------------------------------
 
+//Objeto que voy a guardar en el LocalStorage
+// data = {
+//     //Modo oscuro/claro
+//     theme: '',
+//     //Objeto categorias
+//     categories : [{
+//         id : '',
+//         name : '',
+//     }],
+//     //Objeto operaciones
+//     operations : [{
+//         category: '',
+//         description: '',
+//         date: '',
+//         id: '',
+//         amount: '',
+//         type: '',
+//     }],
+// }; 
+//Envío mi objeto al LocalStorage bajo la key "data"
+//localStorage.setItem("data", JSON.stringify(data));
+
+
+//LocalStorage get item 
+const getItems = () => {
+    return JSON.parse(localStorage.getItem("data"));
+};
+//LocalStorage set item
+// const setItem = () => {
+//     return JSON.stringify(localStorage.setItem("data"));
+// };
+
+const setItem = (data) => {
+    localStorage.setItem("data", JSON.stringify({ ...getItems(), ...data}));
+};
+// Get Categories Function 
+const getCategories = () => {
+    return getItems()?.categories
+};
+
+let categories = getCategories() || [
+    {
+        id: randomId(),
+        name: "Comida",
+    },
+    {
+        id: randomId(),
+        name: "Servicios",
+    },
+    {
+        id: randomId(),
+        name: "Salidas",
+    },
+    {
+        id: randomId(),
+        name: "Educacion",
+    },
+    {
+        id: randomId(),
+        name: "Transporte",
+    },
+    {
+        id: randomId(),
+        name: "Trabajo",
+    },
+]
+console.log(categories)
+
+//Función para completar el selector con las categorías 
+const completeSelector = (categories) => {
+    $$("#category").forEach((select) => {
+        select.innerHTML = "";
+        for (let { name, id } of categories) {
+            select.innerHTML += `<option value="${id}">${name}</option>`
+        } 
+    });
+};
+completeSelector(categories);
 
     
