@@ -267,4 +267,26 @@ const categoryList = (categories) => {
      };
  };
  categoryList(categories)
+
+//esta linea la utilicé para subir la variable de array de objetos "categories" dentro del array categories, del objeto "data"
+//  setItem({ categories: categories });
+
+//Add Category
+const addCategory = () => {
+    //Create a new category
+    let newCategory = {
+        id: randomId(),
+        name: $("#add-category").value
+    };
+    let currentCategories = getCategories()
+    currentCategories.push(newCategory)
+    categoryList(currentCategories)
+    completeSelector(currentCategories)
+    setItem({ categories: currentCategories})
+    //Clean the input field
+    $("#add-category").value = "";
+    
+};
+$(".add-category-btn").addEventListener("click", addCategory)
+
     
