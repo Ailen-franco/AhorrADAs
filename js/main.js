@@ -327,3 +327,12 @@ const editCategory = (id) => {
         showElement(".category")
     });
 };
+
+//function for the "delete" button from the list of edit categories 
+const deleteCategoryBtn = (id) => {
+    let currentCategory = getCategories().filter((category) =>
+    category.id !== id)
+    categoryList(currentCategory)
+    completeSelector(currentCategory)
+    setItem({ categories: currentCategory})
+};
