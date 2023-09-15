@@ -289,4 +289,20 @@ const addCategory = () => {
 };
 $(".add-category-btn").addEventListener("click", addCategory)
 
-    
+//Function to filter the category  
+const filterCategory = (idCategory, categories) => {
+    return categories.find((category) => category.id === idCategory);
+};
+
+//Function for the "edit" button of the edit categories list
+const showEditCategoryBtn = (id) => {
+    $(".edit-category").classList.remove("hidden");
+    $(".category").classList.add("hidden");
+    //Variable que guarda el contenido de la función filterCategory y nos devuelve un elemento filtrado del array
+    let editDenomination = filterCategory(id, getCategories());
+    //Completa el value en el input
+    $("#edit-category-input").value = editDenomination.name;
+    //Evento para que agregue el nuevo value editado
+    $("#edit-btn-category").addEventListener("click", () => 
+    editCategory(editDenomination.id));
+};
