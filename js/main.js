@@ -5,9 +5,9 @@ const $$ = (selector) => document.querySelectorAll(selector);
 //Show or Hide Elements
 const showElement = (selector) => $(selector).classList.remove("hidden")
 const hideElement = (selector) => $(selector).classList.add("hidden")
-
 //Random ID generator
 const randomId = () => self.crypto.randomUUID()
+
 
 // SELECTORS
 // filter card section
@@ -18,14 +18,6 @@ for (let type of types) {
     let option = document.createElement("option");
     option.innerHTML = `${type}`;
     $("#type").appendChild(option)
-}
-// category
-const categories = ["Todas", "Comidas", "Servicios", "Salidas", "Educación", "Transporte", "Trabajo"]
-
-for (let category of categories) {
-    let option = document.createElement("option");
-    option.innerHTML = `${category}`;
-    $("#category").appendChild(option)
 }
 // order
 const order = ["Más reciente", "Menos reciente", "Mayor monto", "Menor monto", "A/Z", "Z/A"]
@@ -44,15 +36,6 @@ for (let type of types) {
     option.innerHTML = `${type}`;
     $("#benefit").appendChild(option)
 }
-// category
-const category = ["Todas", "Comidas", "Servicios", "Salidas", "Educación", "Transporte", "Trabajo"]
-
-for (let category of categories) {
-    let option = document.createElement("option");
-    option.setAttribute("value", category)
-    option.innerHTML = `${category}`;
-    $("#categories").appendChild(option)
-}
 // INPUTS DATE
 const date = () => {
     const inputDate = $$('input[type="date"]');
@@ -60,35 +43,8 @@ const date = () => {
         input.valueAsDate = new Date()
     })
 }
-
 date()
 
-// FUNCTIONALITIES
-// new operation section
-// add btn
-
-// $("#add-btn").addEventListener('click', () => {
-//     const newCategory = $('#description').value
-//     category.push(newCategory)
-// })
-
-
-// Operations table
-const renderOperations = (operations) => {
-    for (const operation of operations) {
-        const { Descripción, Categoría, Fecha, Monto, Acciones } = operation 
-        $("#table").innerHTML += `
-            <td>${Descripción}</td>
-            <td>${Categoría}</td>
-            <td>${Fecha}</td>
-            <td>${Monto}</td>
-            <td>
-                <button class="btn mr-2 text-xs text-teal-500 hover:text-zinc-600">Editar</button>
-                <button class="btn text-xs text-teal-500 hover:text-zinc-600">Eliminar</button>
-            </td>
-        `
-    }
-}
 // SHOW/HIDE SECTION
 //Show New Operation Form
 $("#add-operation-btn").addEventListener("click", () => {
@@ -116,6 +72,12 @@ $("#category-section").addEventListener("click", () => {
     hideElement("#operation-card")
     hideElement(".form")
     hideElement(".reports")
+    hideElement(".edit-category")
+})
+//Hide Edit Category Section
+$("#cancel-btn-category").addEventListener("click", () => {
+    showElement(".category")
+    hideElement(".edit-category")
 })
 //Show Reports Section
 $("#reports-section").addEventListener("click", () => {
@@ -132,8 +94,7 @@ $("#balance-section").addEventListener("click", () => {
     showElement(".aside-cards")
     hideElement(".reports")
     hideElement(".category")
-    hideElement(".form")
-    
+    hideElement(".form")  
 })
 //Show Dropdown Menu
 $(".bars").addEventListener("click", () => {
@@ -172,8 +133,10 @@ $("#reports-dropdown").addEventListener("click", () => {
     hideElement(".form")
     hideElement(".edit-form")
 })
-let isMenuOpen = false;
 
+//Scroll the main content down when the menu is displayed
+//Defino una variable para corroborar el estado del menú
+let isMenuOpen = false;
 // Add an event handler to the menu button
 $(".bars").addEventListener('click', () => {
     isMenuOpen = !isMenuOpen;
@@ -192,3 +155,7 @@ $(".x-mark").addEventListener('click', () => {
 // Restores the top margin of the main content
 $(".main-content").style.marginTop = '0';
 });
+
+
+
+    

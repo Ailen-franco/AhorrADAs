@@ -15,8 +15,8 @@
 <body class="bg-slate-100">
     <!-- header -->
     <header>
-        <nav class="h-24 flex mb-0 items-center justify-between flex-wrap text-slate-50 bg-teal-400">
-            <div class="w-[250px] items center">
+        <nav class="h-24 flex items-center justify-between flex-wrap mb-0 text-slate-50 bg-teal-400">
+            <div class="w-[250px]">
                 <h1 class="mx-10 mt-3 text-3xl sm:text-4xl w-64 h-14 rounded font-semibold" id="title"><i class="fa-solid fa-wallet"></i> AhorrADAs</h1>
             </div>
             <div class="bg-teal-400 text-center flex items-center lg:flex lg:items-center">
@@ -79,7 +79,7 @@
             </div>
             <div>
                 <p class="mt-4 ml-4 text-base font-bold">Monto</p>
-                <input type="number" class="mt-2 mx-4 p-2 w-[275px] sm:w-[560px] lg:w-[860px] border-solid border-[1px] border-teal-400 rounded shadow-sm">
+                <input type="number" id="benefit" class="mt-2 mx-4 p-2 w-[275px] sm:w-[560px] lg:w-[860px] border-solid border-[1px] border-teal-400 rounded shadow-sm">
             </div>
             <div>
                 <p class="mt-4 ml-4 text-base font-bold">Tipo</p>
@@ -87,7 +87,9 @@
             </div>
             <div>
                 <p class="mt-4 ml-4 text-base font-bold">Categoría</p>
-                <select name="categorie" id="categories" class="mt-2 mx-4 p-2 w-[275px] sm:w-[560px] lg:w-[860px] border-solid border-[1px] border-teal-400 rounded shadow-sm"></select>
+                <select name="category" id="category" class="category-form mt-2 mx-4 p-2 w-[275px] sm:w-[560px] lg:w-[860px] border-solid border-[1px] border-teal-400 rounded shadow-sm">
+                    <option value="">Todas</option>
+                </select>
             </div>
             <div>
                 <p class="mt-4 ml-4 text-base font-bold">Fecha</p>
@@ -115,11 +117,13 @@
             </div>
             <div>
                 <p class="mt-4 ml-4 text-base font-bold">Categoría</p>
-                <select name="categorie" id="categories" class="mt-2 mx-4 p-2 w-[275px] sm:w-[560px] lg:w-[860px] border-solid border-[1px] border-teal-400 rounded shadow-sm"></select>
+                <select name="category" id="category" class="category-edit mt-2 mx-4 p-2 w-[275px] sm:w-[560px] lg:w-[860px] border-solid border-[1px] border-teal-400 rounded shadow-sm">
+                    <option value="">Todas</option>
+                </select>
             </div>
             <div>
                 <p class="mt-4 ml-4 text-base font-bold">Fecha</p>
-                <input type="date" class="mt-2 mx-4 p-2 w-[275px] sm:w-[560px] lg:w-[860px] border-solid border-[1px] border-teal-400 rounded shadow-sm">
+                <input type="date" id="date" class="mt-2 mx-4 p-2 w-[275px] sm:w-[560px] lg:w-[860px] border-solid border-[1px] border-teal-400 rounded shadow-sm">
             </div>
             <div class="flex justify-end mr-4">
                 <button type="button" class="mt-10 mx-1 w-16 sm:w-24 h-8 sm:h-10 cursor-pointer bg-zinc-200 text-sm sm:text-base rounded hover:bg-zinc-300" id="cancel-btn-operation">Cancelar</button>
@@ -156,7 +160,9 @@
                 </div>
                 <div>
                     <p class="mt-4 ml-4 text-lg font-bold">Categoría</p>
-                    <select name="category" id="category" class="mt-4 ml-4 p-2 w-[275px] sm:w-[560px] lg:w-[275px] border-solid border-[1px] border-teal-400 rounded"></select>
+                    <select name="category" id="category" class="category-filter mt-4 ml-4 p-2 w-[275px] sm:w-[560px] lg:w-[275px] border-solid border-[1px] border-teal-400 rounded">
+                        <option value="">Todas</option>
+                    </select>
                 </div>
                 <div>
                     <p class="mt-4 ml-4 text-lg font-bold">Desde</p>
@@ -173,44 +179,12 @@
             <h2 class="mx-4 pt-4 text-2xl sm:text-3xl text-zinc-600 font-bold">Categorías</h2>
             <p class="mt-14 ml-4 text-lg font-bold">Nombre</p>
             <div>
-                <input type="text" class="mt-4 ml-4 p-2 w-40 sm:w-[450px] lg:w-[750px] border-solid border-[1px] border-teal-400 rounded shadow-sm">
-                <button class="mx-2 w-24 h-10 cursor-pointer bg-teal-400 text-slate-50 rounded hover:bg-teal-500">Agregar</button>
+                <input type="text" class="mt-4 ml-4 p-2 w-40 sm:w-[450px] lg:w-[750px] border-solid border-[1px] border-teal-400 rounded shadow-sm" id="add-category">
+                <button class="mx-2 w-24 h-10 cursor-pointer bg-teal-400 text-slate-50 rounded hover:bg-teal-500 add-category-btn">Agregar</button>
             </div>
-            <section class="flex justify-between">
-                <div class="mt-8 ml-4">
-                    <p class="w-20 h-6 my-4 text-center text-teal-800 bg-teal-100 rounded">Comida</p>
-                    <p class="w-20 h-6 my-4 text-center text-teal-800 bg-teal-100 rounded">Servicios</p>
-                    <p class="w-20 h-6 my-4 text-center text-teal-800 bg-teal-100 rounded">Salidas</p>
-                    <p class="w-20 h-6 my-4 text-center text-teal-800 bg-teal-100 rounded">Educación</p>
-                    <p class="w-20 h-6 my-4 text-center text-teal-800 bg-teal-100 rounded">Transporte</p>
-                    <p class="w-20 h-6 my-4 text-center text-teal-800 bg-teal-100 rounded">Trabajo</p>
-                </div>
-                <div class="mt-8 mr-8">
-                    <div class="my-4">
-                        <button class="mr-2 text-xs text-teal-500 hover:text-zinc-600">Editar</button>
-                        <button class="text-xs text-teal-500 hover:text-zinc-600">Eliminar</button>
-                    </div>
-                    <div class="my-4">
-                        <button class="mr-2 text-xs text-teal-500 hover:text-zinc-600">Editar</button>
-                        <button class="text-xs text-teal-500 hover:text-zinc-600">Eliminar</button>
-                    </div>
-                    <div class="my-4">
-                        <button class="mr-2 text-xs text-teal-500 hover:text-zinc-600">Editar</button>
-                        <button class="text-xs text-teal-500 hover:text-zinc-600">Eliminar</button>
-                    </div>
-                    <div class="my-4">
-                        <button class="mr-2 text-xs text-teal-500 hover:text-zinc-600">Editar</button>
-                        <button class="text-xs text-teal-500 hover:text-zinc-600">Eliminar</button>
-                    </div>
-                    <div class="my-4">
-                        <button class="mr-2 text-xs text-teal-500 hover:text-zinc-600">Editar</button>
-                        <button class="text-xs text-teal-500 hover:text-zinc-600">Eliminar</button>
-                    </div>
-                    <div class="my-4">
-                        <button class="mr-2 text-xs text-teal-500 hover:text-zinc-600">Editar</button>
-                        <button class="text-xs text-teal-500 hover:text-zinc-600">Eliminar</button>
-                    </div>
-                </div>
+            <section>
+                <ul class="mt-8 ml-4" id="category-list">
+                </ul>
             </section>
         </section>
         <!-- edit category card -->
@@ -218,7 +192,7 @@
             <h2 class="mx-4 pt-4 text-2xl sm:text-3xl text-zinc-600 font-bold">Editar categorías</h2>
             <p class="mt-14 ml-4 text-lg font-bold">Nombre</p>
             <div>
-                <input type="text" class="mt-2 mx-4 p-2 w-64 sm:w-[565px] lg:w-[860px] border-solid border-[1px] border-teal-400 rounded shadow-sm">
+                <input type="text" class="mt-2 mx-4 p-2 w-64 sm:w-[565px] lg:w-[860px] border-solid border-[1px] border-teal-400 rounded shadow-sm" id="edit-category-input">
                 <div class="flex justify-end mr-4">
                     <button class="mt-10 mx-2 sm:mx-1 w-16 sm:w-24 h-8 sm:h-10 cursor-pointer bg-zinc-200 text-sm sm:text-base rounded hover:bg-zinc-300" id="cancel-btn-category">Cancelar</button>
                     <button class="mt-10 mr-5 sm:mx-1 w-16 sm:w-24 h-8 sm:h-10 cursor-pointer bg-teal-400 text-sm sm:text-base text-slate-50 rounded hover:bg-teal-500" id="edit-btn-category">Editar</button>
