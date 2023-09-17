@@ -462,6 +462,14 @@ const editOperation = (id) => {
     });
 };
 
+//Function for the "delete" button from the operations table
+const deleteOperationBtn = (id) => {
+    let currentOperation = getOperations().filter((operation) => 
+    operation.id !== id)
+    setItem({ operations: currentOperation})
+    renderOperations(currentOperation)
+};
+
 
 
 
