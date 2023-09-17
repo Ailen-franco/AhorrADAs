@@ -64,7 +64,7 @@
                         <th>Monto</th>
                         <th>Acciones</th>
                     </thead>
-                    <tbody id="tBody">
+                    <tbody id="tBody" class="text-center my-10 ml-4">
                         <!-- Here we will render the operations from localstorage -->
                     </tbody>
                 </table>
@@ -79,7 +79,7 @@
             </div>
             <div>
                 <p class="mt-4 ml-4 text-base font-bold">Monto</p>
-                <input type="number" id="benefit" class="mt-2 mx-4 p-2 w-[275px] sm:w-[560px] lg:w-[860px] border-solid border-[1px] border-teal-400 rounded shadow-sm">
+                <input type="number" id="amount" class="mt-2 mx-4 p-2 w-[275px] sm:w-[560px] lg:w-[860px] border-solid border-[1px] border-teal-400 rounded shadow-sm">
             </div>
             <div>
                 <p class="mt-4 ml-4 text-base font-bold">Tipo</p>
@@ -93,7 +93,7 @@
             </div>
             <div>
                 <p class="mt-4 ml-4 text-base font-bold">Fecha</p>
-                <input type="date" class="mt-2 mx-4 p-2 w-[275px] sm:w-[560px] lg:w-[860px] border-solid border-[1px] border-teal-400 rounded shadow-sm">
+                <input type="date" id="date" class="mt-2 mx-4 p-2 w-[275px] sm:w-[560px] lg:w-[860px] border-solid border-[1px] border-teal-400 rounded shadow-sm">
             </div>
             <div class="flex justify-end mr-4">
                 <button type="button" class="mt-10 mx-1 w-16 sm:w-24 h-8 sm:h-10 cursor-pointer bg-zinc-200 text-sm sm:text-base rounded hover:bg-zinc-300" id="cancel-btn">Cancelar</button>
@@ -105,11 +105,11 @@
             <h2 class="mx-4 pt-4 text-3xl text-zinc-600 font-bold">Editar Operación</h2>
             <div>
                 <p class="mt-14 ml-4 text-base font-bold">Descripción</p>
-                <input type="text" id="description" class="mt-2 mx-4 p-2 w-[275px] sm:w-[560px] lg:w-[860px] border-solid border-[1px] border-teal-400 rounded shadow-sm">
+                <input type="text" id="edit-description" class="mt-2 mx-4 p-2 w-[275px] sm:w-[560px] lg:w-[860px] border-solid border-[1px] border-teal-400 rounded shadow-sm">
             </div>
             <div>
                 <p class="mt-4 ml-4 text-base font-bold">Monto</p>
-                <input type="number" class="mt-2 mx-4 p-2 w-[275px] sm:w-[560px] lg:w-[860px] border-solid border-[1px] border-teal-400 rounded shadow-sm">
+                <input type="number" id="edit-amount" class="mt-2 mx-4 p-2 w-[275px] sm:w-[560px] lg:w-[860px] border-solid border-[1px] border-teal-400 rounded shadow-sm">
             </div>
             <div>
                 <p class="mt-4 ml-4 text-base font-bold">Tipo</p>
@@ -123,7 +123,7 @@
             </div>
             <div>
                 <p class="mt-4 ml-4 text-base font-bold">Fecha</p>
-                <input type="date" id="date" class="mt-2 mx-4 p-2 w-[275px] sm:w-[560px] lg:w-[860px] border-solid border-[1px] border-teal-400 rounded shadow-sm">
+                <input type="date" id="edit-date" class="mt-2 mx-4 p-2 w-[275px] sm:w-[560px] lg:w-[860px] border-solid border-[1px] border-teal-400 rounded shadow-sm">
             </div>
             <div class="flex justify-end mr-4">
                 <button type="button" class="mt-10 mx-1 w-16 sm:w-24 h-8 sm:h-10 cursor-pointer bg-zinc-200 text-sm sm:text-base rounded hover:bg-zinc-300" id="cancel-btn-operation">Cancelar</button>

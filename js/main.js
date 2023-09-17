@@ -336,3 +336,92 @@ const deleteCategoryBtn = (id) => {
     completeSelector(currentCategory)
     setItem({ categories: currentCategory})
 };
+
+//----------------------------------------------------------
+//                       OPERATIONS
+//----------------------------------------------------------
+//Get Operations Function
+const getOperations = () => {
+    return getItems()?.operations
+};
+
+
+let operations = getOperations() || [
+    {
+    id: randomId(),
+    description: $("#description").value,
+    amount: $("#amount").valueAsNumber,
+    type: $("#benefit").value,
+    category: $("#category").value,
+    date: $("#date").value,
+    },
+]
+console.log(operations)
+
+//esta linea la utilicé para subir la variable de array de objetos "operations" dentro del array operations, del objeto "data"
+//setItem({ operations: operations });
+
+// Operations table
+const renderOperations = (operations) => {
+    $("#tBody").innerHTML = ""
+    for (const { id, description, category, date, amount } of operations) {
+        $("#tBody").innerHTML += `
+            <td class="font-semibold text-gray-600">${description}</td>
+            <td class="text-teal-800 bg-teal-100 rounded">${category}</td>
+            <td class="text-gray-500">${date}</td>
+            <td>${amount}</td>
+            <td>
+                <button onclick="showEditOperationBtn('${id}')" id="${id}" class="btn mr-2 text-xs text-teal-500 hover:text-zinc-600 edit-operation-btn">Editar</button>
+                <button onclick="deleteOperationBtn('${id}')" id="${id}" class="btn text-xs text-teal-500 hover:text-zinc-600 delete-operation-btn">Eliminar</button>
+            </td>
+        `
+    }
+};
+renderOperations(operations)
+
+//Function that saves my object
+const saveOperationData = () => {
+    //With this return I define the object
+        return {
+            id: randomId(),
+            description: $("#description").value,
+            amount: $("#amount").valueAsNumber,
+            type: $("#benefit").value,
+            category: $("#category").value,
+            date: $("#date").value
+        };
+    };
+
+//function add operation
+const addNewOperation = () => {
+    //create a variable, bringing the operations of the localStorage
+    const currentOperation = getOperations()
+    //save in a variable, what the user entered in the form
+    const operation = saveOperationData()
+    //push the new data to the operations array
+    currentOperation.push(operation)
+    console.log(currentOperation)
+    setItem({ operations: currentOperation });
+    //clean the input field
+    $("#description").value = "";
+    $("#amount").value = "";
+    $("#benefit").value = "";
+    $("#category").value = "";
+    $("#date").value = "";
+};
+
+$("#add-btn").addEventListener("click", addNewOperation)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
