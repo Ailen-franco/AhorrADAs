@@ -382,15 +382,15 @@ renderOperations(operations)
 //Function that saves my object
 const saveOperationData = () => {
     //With this return I define the object
-        return {
-            id: randomId(),
-            description: $("#description").value,
-            amount: $("#amount").valueAsNumber,
-            type: $("#benefit").value,
-            category: $("#category").value,
-            date: $("#date").value
-        };
+    return {
+        id: randomId(),
+        description: $("#description").value,
+        amount: $("#amount").valueAsNumber,
+        type: $("#benefit").value,
+        category: $("#category").value,
+        date: $("#date").value
     };
+};
 
 //function add operation
 const addNewOperation = () => {
@@ -433,6 +433,33 @@ const showEditOperationBtn = (id) => {
     //Event to add the new edited value
     $("#edit-btn-operation").addEventListener("click", () => 
     editOperation(editDenomination.id));
+};
+
+//Functionality for the input to take the new value of said input
+const editOperation = (id) => {
+    //create a new operation
+    let newOperation = {
+        id: randomId(),
+        description: $("#edit-description").value,
+        amount: $("#edit-amount").valueAsNumber,
+        type: $("#benefit").value,
+        category: $("#category").value,
+        date: $("#edit-date").valueAsDate,
+    };
+    //Variable that saves the last updated data, and with the map method, it goes through each operation of the array
+    let updatedOperations = getOperations().map((operation) => 
+    //Use the ternary operator to search for the same id that enters by parameter, and save it in the new operation 
+    operation.id === id ? { ...newOperation } : operation
+    );
+    renderOperations(updatedOperations);
+    //completeSelector(updatedOperations);
+    setItem({ operations: updatedOperations });
+    $("#edit-btn-operation").addEventListener("click", () => {
+        hideElement(".edit-form")
+        hideElement(".aside-cards")
+        showElement("#operation-card")
+        showElement("#table")
+    });
 };
 
 
