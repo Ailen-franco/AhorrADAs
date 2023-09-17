@@ -412,9 +412,27 @@ const addNewOperation = () => {
 
 $("#add-btn").addEventListener("click", addNewOperation)
 
-//Función para filtrar operación 
+//Function to filter operation 
 const filterOperation = (idOperation, operations) => {
     return operations.find((operation) => operation.id === idOperation);
+};
+
+//Function for the "edit" button of the operations table 
+const showEditOperationBtn = (id) => {
+    showElement(".edit-form")
+    hideElement(".form")
+    hideElement("#operation-card")
+    //Variable that saves the content of the filterCategory function and returns a filtered element of the array
+    let editDenomination = filterOperation(id, getOperations());
+    //Complete the value in the input
+    $("#edit-description").value = editDenomination.description
+    $("#edit-amount").value = editDenomination.amount
+    $("#benefit").value = editDenomination.type
+    $("#category").value = editDenomination.category
+    $("#edit-date").value = editDenomination.date
+    //Event to add the new edited value
+    $("#edit-btn-operation").addEventListener("click", () => 
+    editOperation(editDenomination.id));
 };
 
 
