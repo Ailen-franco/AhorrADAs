@@ -412,6 +412,10 @@ const addNewOperation = () => {
 
 $("#add-btn").addEventListener("click", addNewOperation)
 
+//Función para filtrar operación 
+const filterOperation = (idOperation, operations) => {
+    return operations.find((operation) => operation.id === idOperation);
+};
 
 
 
