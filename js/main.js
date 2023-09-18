@@ -29,12 +29,21 @@ for (let range of order) {
 }
 // new operation section
 // type
-const type = ["Gastos", "Ganancias"]
+const type = ["Todos", "Gastos", "Ganancias"]
 
 for (let type of types) {
     let option = document.createElement("option");
     option.innerHTML = `${type}`;
     $("#benefit").appendChild(option)
+}
+// edit operation section
+// type
+const editType = ["Todos", "Gastos", "Ganancias"]
+
+for (let type of types) {
+    let option = document.createElement("option");
+    option.innerHTML = `${type}`;
+    $("#edit-benefit").appendChild(option)
 }
 // INPUTS DATE
 const date = () => {
