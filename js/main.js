@@ -387,7 +387,7 @@ const saveOperationData = () => {
         description: $("#description").value,
         amount: $("#amount").valueAsNumber,
         type: $("#benefit").value,
-        category: $("#category").text,
+        category: $("#category").value,
         date: $("#date").value,
     };
 };
