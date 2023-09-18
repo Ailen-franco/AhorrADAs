@@ -387,8 +387,8 @@ const saveOperationData = () => {
         description: $("#description").value,
         amount: $("#amount").valueAsNumber,
         type: $("#benefit").value,
-        category: $("#category").value,
-        date: $("#date").value
+        category: $("#category").text,
+        date: $("#date").value,
     };
 };
 
@@ -402,6 +402,7 @@ const addNewOperation = () => {
     currentOperation.push(operation)
     console.log(currentOperation)
     setItem({ operations: currentOperation });
+    renderOperations(currentOperation)
     //clean the input field
     $("#description").value = "";
     $("#amount").value = "";
@@ -411,6 +412,7 @@ const addNewOperation = () => {
 };
 
 $("#add-btn").addEventListener("click", addNewOperation)
+
 
 //Function to filter operation 
 const filterOperation = (idOperation, operations) => {
