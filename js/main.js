@@ -172,22 +172,10 @@ $(".main-content").style.marginTop = '0';
 
 //Objeto que voy a guardar en el LocalStorage
 // data = {
-//     //Modo oscuro/claro
-//     theme: '',
 //     //Objeto categorias
-//     categories : [{
-//         id : '',
-//         name : '',
-//     }],
+//     categories : [],
 //     //Objeto operaciones
-//     operations : [{
-//         category: '',
-//         description: '',
-//         date: '',
-//         id: '',
-//         amount: '',
-//         type: '',
-//     }],
+//     operations : [],
 // }; 
 //Envío mi objeto al LocalStorage bajo la key "data"
 //localStorage.setItem("data", JSON.stringify(data));
@@ -279,7 +267,7 @@ const categoryList = (categories) => {
  categoryList(categories)
 
 //esta linea la utilicé para subir la variable de array de objetos "categories" dentro del array categories, del objeto "data"
-//  setItem({ categories: categories });
+  setItem({ categories: categories });
 
 //Add Category
 const addCategory = () => {
@@ -314,7 +302,8 @@ const showEditCategoryBtn = (id) => {
     $("#edit-category-input").value = editDenomination.name;
     //Evento para que agregue el nuevo value editado
     $("#edit-btn-category").addEventListener("click", () => 
-    editCategory(editDenomination.id));
+    editCategory(editDenomination.id))
+    console.log(editDenomination.id)
 };
 
 //Functionality for the input to take the new value of said input
@@ -322,13 +311,15 @@ const editCategory = (id) => {
     //Create a new category
     let newCategory = {
         id: id,
-        name: $("#edit-category-input").value
+        name: $("#edit-category-input").value   
     };
     // Variable que guarda los últimos datos actualizados, y con el metodo map, recorre cada categoría del array
     let updatedCategories = getCategories().map((category) => 
+    
     //Utilizo el operador ternario para buscar el mismo id que entra por parámetro, y guardarla en la nueva categoria 
     category.id === id ? { ...newCategory } : category
     );
+    console.log(updatedCategories),
     categoryList(updatedCategories);
     completeSelector(updatedCategories);
     setItem({ categories: updatedCategories });
@@ -397,7 +388,7 @@ const saveOperationData = () => {
         description: $("#description").value,
         amount: $("#amount").valueAsNumber,
         type: $("#benefit").value,
-        category: $("#category").value,
+        category: $("#category").selectedOptions[0].text,
         date: $("#date").value,
     };
 };
@@ -455,7 +446,7 @@ const editOperation = (id) => {
         description: $("#edit-description").value,
         amount: $("#edit-amount").valueAsNumber,
         type: $("#benefit").value,
-        category: $("#category").value,
+        category: $("#category").selectedOptions[0].text,
         date: $("#edit-date").valueAsDate,
     };
     //Variable that saves the last updated data, and with the map method, it goes through each operation of the array
@@ -464,7 +455,7 @@ const editOperation = (id) => {
     operation.id === id ? { ...newOperation } : operation
     );
     renderOperations(updatedOperations);
-    //completeSelector(updatedOperations);
+    completeSelector(updatedOperations);
     setItem({ operations: updatedOperations });
     $("#edit-btn-operation").addEventListener("click", () => {
         hideElement(".edit-form")
