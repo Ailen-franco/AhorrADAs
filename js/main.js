@@ -103,7 +103,8 @@ $("#balance-section").addEventListener("click", () => {
     showElement(".aside-cards")
     hideElement(".reports")
     hideElement(".category")
-    hideElement(".form")  
+    hideElement(".form")
+    hideElement(".edit-form")  
 })
 //Show Dropdown Menu
 $(".bars").addEventListener("click", () => {
