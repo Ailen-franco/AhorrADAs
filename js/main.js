@@ -420,8 +420,8 @@ const showEditOperationBtn = (id) => {
     //Complete the value in the input
     $("#edit-description").value = editDenomination.description
     $("#edit-amount").value = editDenomination.amount
-    $("#benefit").value = editDenomination.type
-    $("#category").value = editDenomination.category
+    $("#edit-benefit").value = editDenomination.type
+    $("#edit-category").selectedOptions[0].text = editDenomination.category
     $("#edit-date").value = editDenomination.date
     //Event to add the new edited value
     $("#edit-btn-operation").addEventListener("click", () => 
@@ -435,8 +435,8 @@ const editOperation = (id) => {
         id: randomId(),
         description: $("#edit-description").value,
         amount: $("#edit-amount").valueAsNumber,
-        type: $("#benefit").value,
-        category: $("#category").selectedOptions[0].text,
+        type: $("#edit-benefit").value,
+        category: $("#edit-category").selectedOptions[0].text,
         date: $("#edit-date").valueAsDate,
     };
     //Variable that saves the last updated data, and with the map method, it goes through each operation of the array
