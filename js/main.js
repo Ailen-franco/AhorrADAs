@@ -311,14 +311,23 @@ const showEditCategoryBtn = (id) => {
     $(".edit-category").classList.remove("hidden");
     $(".category").classList.add("hidden");
     //Variable que guarda el contenido de la función filterCategory y nos devuelve un elemento filtrado del array
-    let editDenomination = filterCategory(id, getCategories());
+    const editDenomination = filterCategory(id, getCategories());
     //Completa el value en el input
     $("#edit-category-input").value = editDenomination.name;
+    //Establece el boton data-id en el boton de edicion
+    $("#edit-btn-category").setAttribute("data-id", id);
     //Evento para que agregue el nuevo value editado
-    $("#edit-btn-category").addEventListener("click", () => 
-    editCategory(editDenomination.id))
-    console.log(editDenomination.id)
+    // $("#edit-btn-category").addEventListener("click", () =>
+    // editCategory(editDenomination.id))
 };
+
+$("#edit-btn-category").addEventListener("click", () => {
+    //Obtiene el id almacenado en el atributo data-id
+    const id = $("#edit-btn-category").getAttribute("data-id");
+    editCategory(id);
+    hideElement(".edit-category");
+    showElement(".category");
+});
 
 //Functionality for the input to take the new value of said input
 const editCategory = (id) => {
