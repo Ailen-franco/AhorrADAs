@@ -36,15 +36,18 @@ for (let type of types) {
     option.innerHTML = `${type}`;
     $("#benefit").appendChild(option)
 }
-// edit operation section
+// new edit-operation section
 // type
-const editType = ["Todos", "Gastos", "Ganancias"]
+const typeEdit = ["Todos","Gastos", "Ganancias"]
 
-for (let type of types) {
+for (let type of typeEdit) {
     let option = document.createElement("option");
     option.innerHTML = `${type}`;
     $("#edit-benefit").appendChild(option)
 }
+
+
+
 // INPUTS DATE
 const date = () => {
     const inputDate = $$('input[type="date"]');
@@ -82,6 +85,7 @@ $("#category-section").addEventListener("click", () => {
     hideElement(".form")
     hideElement(".reports")
     hideElement(".edit-category")
+    hideElement(".edit-form")
 })
 //Hide Edit Category Section
 $("#cancel-btn-category").addEventListener("click", () => {
