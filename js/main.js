@@ -228,7 +228,7 @@ let categories = getCategories() || [
 ]
 console.log(categories)
 
-//Function to complete the selector with categories 
+//Function to complete the selector form with categories 
 const completeSelector = (categories) => {
     $$("#category").forEach((select) => {
         select.innerHTML = "";
@@ -237,6 +237,16 @@ const completeSelector = (categories) => {
         } 
     });
 };
+//Function to complete the selector edit-category with categories
+const completeEditSelector = (categories) => {
+    $$("#edit-category").forEach((select) => {
+        select.innerHTML = "";
+        for (let { name, id } of categories) {
+            select.innerHTML += `<option value="${id}">${name}</option>`
+        }
+    });
+};
+completeEditSelector(categories);
 completeSelector(categories);
 
 //capture the value of the filters section option 
