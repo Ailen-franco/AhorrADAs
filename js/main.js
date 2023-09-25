@@ -574,6 +574,17 @@ const orderOldest = (filteredOperations) => {
     return filteredOperations
 };
 
+//Function to order highest amount
+const orderHighestAmount = (filteredOperations) => {
+    filteredOperations.sort((a, b) => b.amount - a.amount);
+    return filteredOperations
+};
+
+//Function to order lowest amount
+const orderLowestAmount = (filteredOperations) => {
+    filteredOperations.sort((a, b) => a.amount - b.amount);
+    return filteredOperations
+};
 
 
 
