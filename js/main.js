@@ -537,6 +537,20 @@ const filterByType = (type) => {
     return filteredOperations
 };
 
+//Function filter by categories
+const filterByCategory = (filteredOperations, category) => {
+    //let operations = getOperations()
+    console.log(filteredOperations)
+    let aux = filteredOperations
+    console.log(category)
+    filteredOperations = filteredOperations.filter((operation) => 
+    operation.category === category);
+    if (category === "Todas") {
+        filteredOperations = aux
+    }
+    console.log(filteredOperations)
+    return filteredOperations
+};
 
 
 
