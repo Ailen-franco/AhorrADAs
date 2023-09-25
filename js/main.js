@@ -552,6 +552,15 @@ const filterByCategory = (filteredOperations, category) => {
     return filteredOperations
 };
 
+// Function to filter operations by date
+const filterByDate = (filteredOperations, selectedDate) => {
+    return filteredOperations.filter((operation) => {
+        // Convertir la fecha de la operación a un objeto Date para comparar
+        const operationDate = new Date(operation.date);
+        // Comparar la fecha de la operación con la fecha seleccionada
+        return operationDate >= selectedDate;
+    });
+};
 
 
 
