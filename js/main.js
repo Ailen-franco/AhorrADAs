@@ -598,6 +598,57 @@ const orderZa = (filteredOperations) => {
     return filteredOperations
 }; 
 
+//Function that executes the inputs  
+const applyFilters = () => {
+    const type = $("#type").value;
+    const category = $(".category-filter").selectedOptions[0].text;
+    const selectedDate = new Date($(".date").value);
+    const order = $(".order").value;
+    
+    
+    let filteredOperations = filterByType(type)
+    filteredOperations = filterByCategory(filteredOperations, category)
+    filteredOperations = filterByDate(filteredOperations, selectedDate);
+    balance(filteredOperations)
+    //Apply the sorting according to the selected criteria
+    if (order === "recent") {
+        // Sort from most recent to least recent
+        orderRecent(filteredOperations)
+    } else if (order === "oldest") {
+        // Sort from least recent to most recent
+        orderOldest(filteredOperations)
+    }
+
+    //Apply the order from highest to lowest amount
+    if (order === "highest") {
+        // Sort from highest amount to lowest amount
+        orderHighestAmount(filteredOperations)
+    } else if (order === "lowest") {
+        // Sort from lowest amount to highest amount
+        orderLowestAmount(filteredOperations)
+    }
+
+    //Apply the order of AZ/ZA
+    if (order === "az") {
+        // Sort from highest amount to lowest amount
+        orderAz(filteredOperations)
+    } else if (order === "za") {
+        // Sort from lowest amount to highest amount
+        orderZa(filteredOperations)
+    }
+
+    // Render results in table
+    renderOperations(filteredOperations);
+    showElement("#table")
+    hideElement("#img")
+    }
+
+
+// Listen to filter change events
+$("#type").addEventListener("change", applyFilters);
+$(".category-filter").addEventListener("change", applyFilters);
+$(".date").addEventListener("change", applyFilters);
+$(".order").addEventListener("change", applyFilters);
 
 
 
