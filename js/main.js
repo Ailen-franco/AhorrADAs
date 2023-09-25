@@ -228,6 +228,7 @@ console.log(categories)
 const completeSelector = (categories) => {
     $$("#category").forEach((select) => {
         select.innerHTML = "";
+        select.innerHTML += `<option value="${"todas"}">${"Todas"}</option>`
         for (let { name, id } of categories) {
             select.innerHTML += `<option value="${id}">${name}</option>`
         } 
