@@ -336,7 +336,6 @@ const getOperations = () => {
     return getItems()?.operations
 };
 
-
 let operations = getOperations() || [
     {
     id: randomId(),
@@ -352,15 +351,28 @@ console.log(operations)
 //esta linea la utilicé para subir la variable de array de objetos "operations" dentro del array operations, del objeto "data"
 //setItem({ operations: operations });
 
+const formatDate = (date) => {
+    const inputDateValue = date
+    const [year, month, day] = inputDateValue.split('-');
+    const formattedInputDate = `${day}-${month}-${year}`;
+    return formattedInputDate
+};
+
 // Operations table
 const renderOperations = (operations) => {
+    let colorAmount
     $("#tBody").innerHTML = ""
-    for (const { id, description, category, date, amount } of operations) {
+    for (const { id, description, type, category, date, amount } of operations) {
+        if (type === "Ganancias") {
+            colorAmount = "text-green-500" 
+        } else {
+            colorAmount = "text-red-500"
+        }
         $("#tBody").innerHTML += `
             <td class="font-semibold text-gray-600">${description}</td>
             <td class="text-teal-800 bg-teal-100 rounded">${category}</td>
-            <td class="text-gray-500">${date}</td>
-            <td>${amount}</td>
+            <td class="text-gray-500">${formatDate(date)}</td>
+            <td class="${colorAmount}">$${amount}</td>
             <td>
                 <button onclick="showEditOperationBtn('${id}')" id="${id}" class="btn mr-2 text-xs text-teal-500 hover:text-zinc-600 edit-operation-btn">Editar</button>
                 <button onclick="deleteOperationBtn('${id}')" id="${id}" class="btn text-xs text-teal-500 hover:text-zinc-600 delete-operation-btn">Eliminar</button>
@@ -437,7 +449,7 @@ const editOperation = (id) => {
         amount: $("#edit-amount").valueAsNumber,
         type: $("#edit-benefit").value,
         category: $("#edit-category").selectedOptions[0].text,
-        date: $("#edit-date").valueAsDate,
+        date: $("#edit-date").value,
     };
     //Variable that saves the last updated data, and with the map method, it goes through each operation of the array
     let updatedOperations = getOperations().map((operation) => 
