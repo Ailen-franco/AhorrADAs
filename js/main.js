@@ -586,6 +586,17 @@ const orderLowestAmount = (filteredOperations) => {
     return filteredOperations
 };
 
+//Function to order AZ
+const orderAz = (filteredOperations) => {
+    filteredOperations.sort((a, b) => a.description.localeCompare(b.description))
+    return filteredOperations
+};  
+
+//Function to order ZA
+const orderZa = (filteredOperations) => {
+    filteredOperations.sort((a, b) => b.description.localeCompare(a.description))
+    return filteredOperations
+}; 
 
 
 
