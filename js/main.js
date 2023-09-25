@@ -168,61 +168,68 @@ $(".main-content").style.marginTop = '0';
 //                       CATEGORIES
 //----------------------------------------------------------
 
-//Objeto que voy a guardar en el LocalStorage
-// data = {
-//     //Objeto categorias
-//     categories : [],
-//     //Objeto operaciones
-//     operations : [],
-// }; 
-//Envío mi objeto al LocalStorage bajo la key "data"
-//localStorage.setItem("data", JSON.stringify(data));
-
 
 //LocalStorage get item 
 const getItems = () => {
     return JSON.parse(localStorage.getItem("data"));
 };
-//LocalStorage set item
-// const setItem = () => {
-//     return JSON.stringify(localStorage.setItem("data"));
-// };
 
 const setItem = (data) => {
     localStorage.setItem("data", JSON.stringify({ ...getItems(), ...data}));
 };
+
+// Función para configurar los datos iniciales si es la primera vez que se abre la página
+const initializeData = () => {
+    const data = getItems();
+    
+    if (!data) {
+        // No hay datos en el LocalStorage, configurar datos iniciales
+        const categories = [
+            {
+                id: randomId(),
+                name: "Comida",
+            },
+            {
+                id: randomId(),
+                name: "Servicios",
+            },
+            {
+                id: randomId(),
+                name: "Salidas",
+            },
+            {
+                id: randomId(),
+                name: "Educación",
+            },
+            {
+                id: randomId(),
+                name: "Transporte",
+            },
+            {
+                id: randomId(),
+                name: "Trabajo",
+            },
+        ];
+
+        const initialData = {
+            categories,
+            operations: [],
+        };
+
+        // Save initial data to LocalStorage
+        localStorage.setItem("data", JSON.stringify(initialData));
+    }
+};
+
+// Call this function on page load to initialize the data if necessary
+initializeData();
+
 // Get Categories Function 
 const getCategories = () => {
     return getItems()?.categories
 };
 
-let categories = getCategories() || [
-    {
-        id: randomId(),
-        name: "Comida",
-    },
-    {
-        id: randomId(),
-        name: "Servicios",
-    },
-    {
-        id: randomId(),
-        name: "Salidas",
-    },
-    {
-        id: randomId(),
-        name: "Educacion",
-    },
-    {
-        id: randomId(),
-        name: "Transporte",
-    },
-    {
-        id: randomId(),
-        name: "Trabajo",
-    },
-]
-console.log(categories)
+let categories = getCategories() 
 
 //Function to complete the selector form with categories 
 const completeSelector = (categories) => {
