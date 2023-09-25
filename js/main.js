@@ -19,14 +19,18 @@ for (let type of types) {
     option.innerHTML = `${type}`;
     $("#type").appendChild(option)
 }
-// order
-const order = ["Más reciente", "Menos reciente", "Mayor monto", "Menor monto", "A/Z", "Z/A"]
 
-for (let range of order) {
-    let option = document.createElement("option");
-    option.innerHTML = `${range}`;
-    $("#order").appendChild(option)
+//order
+const orderValues = ["recent", "oldest", "highest", "lowest", "az", "za"];
+const order = ["Más reciente", "Menos reciente", "Mayor monto", "Menor monto", "A/Z", "Z/A"];
+
+for (let i = 0; i < orderValues.length; i++) {
+    const option = document.createElement("option");
+    option.innerHTML = order[i];
+    option.value = orderValues[i]; // Agrega el valor correspondiente
+    $("#order").appendChild(option);
 }
+
 // new operation section
 // type
 const type = ["Todos", "Gastos", "Ganancias"]
@@ -36,6 +40,7 @@ for (let type of types) {
     option.innerHTML = `${type}`;
     $("#benefit").appendChild(option)
 }
+
 // new edit-operation section
 // type
 const typeEdit = ["Todos","Gastos", "Ganancias"]
@@ -45,17 +50,6 @@ for (let type of typeEdit) {
     option.innerHTML = `${type}`;
     $("#edit-benefit").appendChild(option)
 }
-
-
-
-// INPUTS DATE
-const date = () => {
-    const inputDate = $$('input[type="date"]');
-    inputDate.forEach((input) => {
-        input.valueAsDate = new Date()
-    })
-}
-date()
 
 // SHOW/HIDE SECTION
 //Show New Operation Form
