@@ -651,4 +651,25 @@ $(".date").addEventListener("change", applyFilters);
 $(".order").addEventListener("change", applyFilters);
 
 
+// -------------------------------------------------------------
+//                       BALANCE
+// -------------------------------------------------------------
 
+//Function that shows the values ​​according to the applied filters
+const balance = (filteredOperations) => {
+    let totalCost = 0
+    let totalProfit = 0
+    filteredOperations.forEach(item => {
+        const amount = parseFloat(item.amount)
+        if (item.type === "Gastos") {
+            totalCost += amount
+        } else if (item.type === "Ganancias") {
+            totalProfit += amount
+        }
+    });
+    const total = totalProfit - totalCost
+
+    document.getElementById("profit").textContent = "$"+totalProfit
+    document.getElementById("cost").textContent = "$"+totalCost
+    document.getElementById("total").textContent = "$"+total
+};
