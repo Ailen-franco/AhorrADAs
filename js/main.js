@@ -562,6 +562,17 @@ const filterByDate = (filteredOperations, selectedDate) => {
     });
 };
 
+//Function to order recent
+const orderRecent = (filteredOperations) => {
+    filteredOperations.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+    return filteredOperations
+};
+
+//Function to order oldest
+const orderOldest = (filteredOperations) => {
+    filteredOperations.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+    return filteredOperations
+};
 
 
 
