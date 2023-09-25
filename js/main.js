@@ -504,7 +504,25 @@ const deleteOperationBtn = (id) => {
 };
 
 
+// ---------------------------------------------------------------------------
+//                                 FILTERS
+//  --------------------------------------------------------------------------
 
+// hide/show filters function
+const toggleFilters = () => {
+    const toggle = $(".hide-filters")
+    const filters = $(".input-filters")
+  
+    if (toggle.innerText === 'Ocultar filtros') {
+      toggle.innerText = 'Mostrar filtros'
+      filters.classList.add('hidden')
+    } else {
+      toggle.innerText = 'Ocultar filtros'
+      filters.classList.remove('hidden')
+    }
+  };
+
+$(".hide-filters").addEventListener("click", toggleFilters)
 
 
 
