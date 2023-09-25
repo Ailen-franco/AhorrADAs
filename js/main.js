@@ -524,6 +524,18 @@ const toggleFilters = () => {
 
 $(".hide-filters").addEventListener("click", toggleFilters)
 
+//Function filter by type
+const filterByType = (type) => {
+    // Inicializo una variable que guarda el resultado de filtrar el array operations
+    // El método filter me devuelve todos los elementos que cumplan con la condición
+    let operations = getOperations()
+    let filteredOperations = operations.filter((operation) => 
+    operation.type === type);
+    if (type === "Todos") {
+        filteredOperations = operations
+    }
+    return filteredOperations
+};
 
 
 
