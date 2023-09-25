@@ -86,6 +86,12 @@ $("#cancel-btn-category").addEventListener("click", () => {
     showElement(".category")
     hideElement(".edit-category")
 })
+//Hide Edit Operation Section
+$("#cancel-btn-operation").addEventListener("click", () => {
+    hideElement(".edit-form")
+    showElement("#operation-card")
+    showElement(".aside-cards")
+})
 //Show Reports Section
 $("#reports-section").addEventListener("click", () => {
     showElement(".reports")
